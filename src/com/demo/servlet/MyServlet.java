@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- *  模拟网页常见的两种请求获取 一种是POST 一种是GET
+ *  模拟网页常见的两种请求获取 一种是POST | 一种是GET
  */
 public class MyServlet extends javax.servlet.http.HttpServlet {
 
