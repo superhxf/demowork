@@ -53,4 +53,6 @@ public class MyServlet extends javax.servlet.http.HttpServlet {
        // super.service(req, resp);
     }
 
+    //servlet 其他的方法 也是可以需要去了解的 但是基本的 请求转发 get post 方法使用的是最多的。
+
 }
