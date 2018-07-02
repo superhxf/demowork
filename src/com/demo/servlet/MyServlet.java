@@ -19,6 +19,10 @@ public class MyServlet extends javax.servlet.http.HttpServlet {
      */
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         System.out.println("post请求");
+        //现在通过请求对象获取请求的内容
+        String strName = request.getParameter("name");
+        String strSex = request.getParameter("sex");
+        System.out.println("name"+strName+",sex:"+strSex);
     }
 
 
@@ -31,6 +35,8 @@ public class MyServlet extends javax.servlet.http.HttpServlet {
      */
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         System.out.println("get请求");
+        //get 请求转发使用post方法
+        doPost(request,response);
     }
 
     /**

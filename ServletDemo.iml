@@ -29,5 +29,14 @@
         <jarDirectory url="file://E:/deploy/apache-tomcat-8.5.31/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/workspace/demowork/repository/demoworks/WebContent/WEB-INF/lib/mysql-connector-java-8.0.11.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
