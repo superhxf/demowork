@@ -11,12 +11,15 @@
     <title>测试servlet</title>
   </head>
   <body>
-    <a href="first?name='zhangsan'&sex='男'">get请求</a>
+    <center>
+    <a href="first?name='zhangsan'&sex='男'&password='123'">get请求</a>
     <br/>
     <form action="first" method="post">
       姓名：<input type="text" name = "name" value=""/>
+      密码： <input type="tex" name="password" value="/">
       性别:<input type = "text" name = "sex" value = ""/>
       <input type="submit" value = "submit"/>
     </form>
+    </center>
   </body>
 </html>

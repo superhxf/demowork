@@ -26,6 +26,7 @@ public class LoginDao {
      * @return
      */
     public static List getRs(String strSql) {
+        System.out.println(strSql);
         //定义变量
         Connection conn = null;
         //定义连接查询指令
@@ -37,6 +38,7 @@ public class LoginDao {
         //创建连接
         try {
             conn = DriverManager.getConnection(url, userroot, passroot);
+            System.out.println("执行进度");
             //基于连接获取查询设置
             state = conn.createStatement();
             rs = state.executeQuery(strSql);
@@ -71,6 +73,7 @@ public class LoginDao {
                 e.printStackTrace();
             }
         }
+
         return list;
     }
 
@@ -82,7 +85,7 @@ public class LoginDao {
      */
     public static boolean verfyLogin(String username,String password){
         boolean result = false;
-        String strsql = "select 1 from person where name = '"+username+"'";
+        String strsql = "select 1 from person where name = "+username+"";
         List list = getRs(strsql);
         if(!(list == null) && list.size() > 0 ){
             result =  true;
@@ -90,6 +93,7 @@ public class LoginDao {
         return result;
     }
     public static void main(String[] args){
-        System.out.println(verfyLogin("丹丹","123"));
+        System.out.println(verfyLogin("'丹丹'","123"));
+        System.out.println(getRs("select 1 from person where name = 'zhangsan'"));
     }
 }

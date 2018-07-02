@@ -1,5 +1,7 @@
 package com.demo.servlet;
 
+import com.demo.service.UserService;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,7 +11,7 @@ import java.io.IOException;
  *  模拟网页常见的两种请求获取 一种是POST | 一种是GET
  */
 public class MyServlet extends javax.servlet.http.HttpServlet {
-
+    private UserService  service = new UserService();
     /**
      * 模拟的是POST请求
      * @param request
@@ -22,7 +24,13 @@ public class MyServlet extends javax.servlet.http.HttpServlet {
         //现在通过请求对象获取请求的内容
         String strName = request.getParameter("name");
         String strSex = request.getParameter("sex");
+        String strPassword = request.getParameter("password");
         System.out.println("name"+strName+",sex:"+strSex);
+        if(service.userLogin(strName,strPassword)){
+            response.sendRedirect("/servicePage/loginError.jsp");
+        }else{
+            response.sendRedirect("/servicePage/loginSucc.jsp");
+        }
     }
 
 
