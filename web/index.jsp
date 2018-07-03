@@ -16,7 +16,7 @@
     <br/>
     <form action="first" method="post">
       姓名：<input type="text" name = "name" value=""/>
-      密码： <input type="tex" name="password" value="/">
+      密码： <input type="tex" name="password" value=""/>
       性别:<input type = "text" name = "sex" value = ""/>
       <input type="submit" value = "submit"/>
     </form>

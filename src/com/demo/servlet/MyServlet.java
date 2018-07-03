@@ -26,6 +26,7 @@ public class MyServlet extends javax.servlet.http.HttpServlet {
         String strSex = request.getParameter("sex");
         String strPassword = request.getParameter("password");
         System.out.println("name"+strName+",sex:"+strSex);
+        request.getSession().setAttribute("username",strName);
         if(service.userLogin(strName,strPassword)){
             response.sendRedirect("/servicePage/loginError.jsp");
         }else{

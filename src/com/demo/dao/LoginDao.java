@@ -37,8 +37,9 @@ public class LoginDao {
         List list = null;
         //创建连接
         try {
+            System.out.println("执行进度1");
             conn = DriverManager.getConnection(url, userroot, passroot);
-            System.out.println("执行进度");
+            System.out.println("执行进度2");
             //基于连接获取查询设置
             state = conn.createStatement();
             rs = state.executeQuery(strSql);
