@@ -3,6 +3,7 @@ package com.demo.servlet;
 import com.demo.service.UserService;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -20,6 +21,8 @@ public class MyServlet extends javax.servlet.http.HttpServlet {
      * @throws IOException
      */
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html ;charset=UTF-8");
         System.out.println("post请求");
         //现在通过请求对象获取请求的内容
         String strName = request.getParameter("name");
@@ -30,6 +33,13 @@ public class MyServlet extends javax.servlet.http.HttpServlet {
         if(service.userLogin(strName,strPassword)){
             response.sendRedirect("/servicePage/loginError.jsp");
         }else{
+            Cookie autoCookie = new Cookie("auto",strName+"-"+strPassword);
+            //设置cookie 存放路径
+            autoCookie.setPath(request.getContextPath()+"/");
+            //设置过期时间 60秒 * 60 分钟 * 1 一个小时
+            autoCookie.setMaxAge(60*60*1);
+            // j讲cookie 推入客户端存储
+            response.addCookie(autoCookie);
             response.sendRedirect("/servicePage/loginSucc.jsp");
         }
     }

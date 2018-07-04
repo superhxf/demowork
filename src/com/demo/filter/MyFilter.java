@@ -3,7 +3,6 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
 public class MyFilter implements Filter {
 
     @Override
@@ -36,6 +35,7 @@ public class MyFilter implements Filter {
             e.printStackTrace();
         }
     }
+
 
     @Override
     public void destroy() {
